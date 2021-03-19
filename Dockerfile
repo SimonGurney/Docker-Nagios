@@ -18,8 +18,8 @@ ENV NG_CGI_DIR             ${NAGIOS_HOME}/sbin
 ENV NG_WWW_DIR             ${NAGIOS_HOME}/share/nagiosgraph
 ENV NG_CGI_URL             /cgi-bin
 ENV NAGIOS_BRANCH          nagios-4.4.6
-ENV NAGIOS_PLUGINS_BRANCH  release-2.2.1
-ENV NRPE_BRANCH            nrpe-3.2.1
+ENV NAGIOS_PLUGINS_BRANCH  release-2.3.2
+ENV NRPE_BRANCH            nrpe-4.0.3
 
 
 RUN echo postfix postfix/main_mailer_type string "'Internet Site'" | debconf-set-selections && echo postfix postfix/mynetworks string "127.0.0.0/8" | debconf-set-selections && echo postfix postfix/mailname string ${NAGIOS_FQDN} | debconf-set-selections && apt-get update && apt-get install -y apache2 apache2-utils autoconf automake bc bsd-mailx build-essential dnsutils fping gettext git gperf iputils-ping jq libapache2-mod-php libcache-memcached-perl libcgi-pm-perl libdbd-mysql-perl libdbi-dev libdbi-perl libgd-dev libgd-gd2-perl libjson-perl libldap2-dev libmysqlclient-dev libnagios-object-perl libmonitoring-plugin-perl libnet-snmp-perl libnet-snmp-perl libnet-tftp-perl libnet-xmpp-perl libpq-dev libredis-perl librrds-perl libssl-dev libswitch-perl libwww-perl m4 netcat parallel php-cli php-gd postfix python-pip rsyslog runit smbclient snmp snmpd snmp-mibs-downloader unzip python && apt-get clean && rm -Rf /var/lib/apt/lists/*
